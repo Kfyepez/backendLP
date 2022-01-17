@@ -12,14 +12,15 @@ module.exports = {
      * }], {});
     */
      for (let i = 0; i <10; i++) {
-      await queryInterface.bulkInsert('Recomendaciones', [{
-        recommendation:'Recomendacion'+i,
+      await queryInterface.bulkInsert('Imagenes', [{
+        link:'Link'+i,
         id_destino:i,
           createdAt: new Date(),
           updatedAt: new Date()
       }], {});
    }
-  }, 
+  },
+
   async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
@@ -27,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Recomendaciones', null, {});
+     await queryInterface.bulkDelete('Imagenes', null, {});
   }
 };

@@ -10,17 +10,6 @@ var loginRouter = require('./routes/login');
 
 var app = express();
 
-// Serve static files
-app.use(express.static(__dirname + '/dist/sitio-angular/'));
-
-// Send all requests to index.html
-app.get('/*', function(req, res) {
-   res.sendFile(path.join(__dirname + '/dist/sitio-angular/index.html'));
-});
-
-// default Heroku port
-app.listen(process.env.PORT || 5000);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
