@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectolpbackend/homePage.dart';
+import 'package:proyectolpbackend/registerPage.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -104,10 +105,12 @@ class LoginPage extends StatelessWidget {
                             textStyle: const TextStyle(fontSize: 20),
                           ),
                           onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                        "Redirigiendo a formulario de registro")));
+
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => RegisterPage()),
+                            );
                           },
                           child: const Text(
                             'Regístrate aquí',
