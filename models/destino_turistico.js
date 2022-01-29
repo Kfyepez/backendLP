@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'destino_turistico',
+    tableName: "destinos_turisticos"
   });
   return destino_turistico;
 };
