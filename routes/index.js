@@ -151,6 +151,7 @@ router.get('/posts', function(req, res, next) {
 
 }); 
 
+//Obtener los post de cierto destino turistico
 router.get('/posts/:idDestino', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -173,6 +174,33 @@ router.get('/posts/:idDestino', function(req, res, next) {
   })
   .then(posts => {
       res.send({"posts":posts});
+  })
+  .catch(error => res.status(400).send(error))
+
+}); 
+//Personas que le gustaron este post
+router.get('/likes/:idPost', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  models.posts_personas.findAll({
+      attributes: { exclude: ["updatedAt","createdAt"] },
+      include: [{ 
+        model: models.posts,
+        as: 'post',
+        attributes: ['id','description']
+     },
+     { 
+      model: models.personas,
+      as: 'persona',
+      attributes: ['email','user']
+   },
+    ],
+    where: {
+      id_post: req.params.idPost.replace(":","")
+     }
+  })
+  .then(personas => {
+      res.send({"personas":personas});
   })
   .catch(error => res.status(400).send(error))
 
