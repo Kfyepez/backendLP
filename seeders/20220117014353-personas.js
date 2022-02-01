@@ -16,8 +16,8 @@ module.exports = {
         user:'Persona'+i,
         password:'user'+i,
         email:'persona'+i+"@hotmail.com",
-          createdAt: new Date(),
-          updatedAt: new Date()
+          /*createdAt: new Date(),
+          updatedAt: new Date()*/
       }], {});
    }
   },

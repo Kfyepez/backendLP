@@ -1,30 +1,32 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('recomendaciones', {
+    await queryInterface.createTable('recomendaciones_hoteles', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      recommendation: {
-        type: Sequelize.STRING
-      },
       id_destino: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'destinos_turisticos',
+          key: 'id'
+        }
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      name: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      precio: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('recomendaciones');
+    await queryInterface.dropTable('recomendaciones_hoteles');
   }
 };

@@ -17,8 +17,8 @@ module.exports = {
         description:'description'+i,
         ubication:"Ubication"+i,
         score:3.0+(i/5),
-          createdAt: new Date(),
-          updatedAt: new Date()
+          /*createdAt: new Date(),
+          updatedAt: new Date()*/
       }], {});
    }
   },

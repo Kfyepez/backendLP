@@ -8,20 +8,18 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      path: {
-        type: Sequelize.STRING
-      },
       id_destino: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'destinos_turisticos',
+          key: 'id'
+        }
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      path: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   async down(queryInterface, Sequelize) {

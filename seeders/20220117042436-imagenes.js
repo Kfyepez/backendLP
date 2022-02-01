@@ -14,9 +14,8 @@ module.exports = {
      for (let i = 0; i <10; i++) {
       await queryInterface.bulkInsert('Imagenes', [{
         link:'Link'+i,
-        id_destino:i,
-          createdAt: new Date(),
-          updatedAt: new Date()
+         /* createdAt: new Date(),
+          updatedAt: new Date()*/
       }], {});
    }
   },

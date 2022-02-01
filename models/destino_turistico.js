@@ -1,27 +1,31 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class destino_turistico extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  destino_turistico.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    ubication: DataTypes.STRING,
-    score: DataTypes.DOUBLE
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('destinos_turisticos', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      primaryKey: true
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    ubication: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    score: {
+      type: DataTypes.DOUBLE,
+      allowNull: true
+    },
+    
   }, {
     sequelize,
-    modelName: 'destino_turistico',
-    tableName: "destinos_turisticos"
+    tableName: 'destinos_turisticos',
+    timestamps: false
   });
-  return destino_turistico;
 };

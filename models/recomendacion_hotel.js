@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('rutas', {
+  return sequelize.define('recomendaciones_hoteles', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -14,13 +14,18 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    path: {
+    name: {
       type: DataTypes.STRING,
+      allowNull: true
+    },
+    precio: {
+      type: DataTypes.DOUBLE,
       allowNull: true
     },
   }, {
     sequelize,
-    tableName: 'rutas',
+    tableName: 'recomendaciones_hoteles',
     timestamps: false
   });
 };
+

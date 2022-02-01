@@ -12,11 +12,11 @@ module.exports = {
      * }], {});
     */
      for (let i = 0; i <10; i++) {
-      await queryInterface.bulkInsert('Recomendaciones', [{
+      await queryInterface.bulkInsert('Recomendaciones_Hoteles', [{
         recommendation:'Recomendacion'+i,
         id_destino:i,
-          createdAt: new Date(),
-          updatedAt: new Date()
+          /*createdAt: new Date(),
+          updatedAt: new Date()*/
       }], {});
    }
   }, 
@@ -27,6 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Recomendaciones', null, {});
+     await queryInterface.bulkDelete('Recomendaciones_Hoteles', null, {});
   }
 };

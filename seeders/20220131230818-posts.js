@@ -12,10 +12,11 @@ module.exports = {
      * }], {});
     */
      for (let i = 0; i <10; i++) {
-      await queryInterface.bulkInsert('Rutas', [{
-        path:'Ruta'+i,
-        id_destino:i,
-         /* createdAt: new Date(),
+      await queryInterface.bulkInsert('Posts', [{
+        id_forest:i,
+        id_imagen:i,
+        description: "Description "+i
+          /*createdAt: new Date(),
           updatedAt: new Date()*/
       }], {});
    }
@@ -28,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Rutas', null, {});
+     await queryInterface.bulkDelete('Posts', null, {});
   }
 };
